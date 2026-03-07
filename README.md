@@ -38,6 +38,13 @@ Android-only Flutter health management app focused on multi-member health data, 
 - [Troubleshooting](docs/ops/TROUBLESHOOTING.md)
 - [APK Distribution](docs/ops/APK_DISTRIBUTION.md)
 
+## Server runbooks
+- [Final server rollout checklist](服务器上线最终完整版本-操作清单.md)
+- [Node backend deployment](服务器上部署后端-操作清单.md)
+- [Database setup](服务器上创建数据库-操作清单.md)
+- [Server communication notes](服务器交流方法总结.md)
+- [Prompt for the server AI](发给服务器AI的最终部署指令.md)
+
 ## Local development
 ```powershell
 cd D:\Android-AI-Health
@@ -54,3 +61,4 @@ Hot reload inside the running `flutter run` terminal:
 - Non-Android platform folders and historical materials were moved out of the main root to reduce noise.
 - Large local SDK archives and temporary outputs are kept in `.artifacts/`.
 - Old delivery and deployment notes were archived under `docs/archive/2026-03/`.
+
