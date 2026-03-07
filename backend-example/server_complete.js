@@ -369,9 +369,24 @@ function extractNumericValue(text, patterns) {
 }
 
 async function ensureMySqlSchema(pool) {
-  await pool.execute(
-    'ALTER TABLE users ADD COLUMN IF NOT EXISTS current_member_id VARCHAR(64) NULL',
-  );
+  async function ensureColumn(tableName, columnName, definition) {
+    const [rows] = await pool.execute(
+      `
+        SELECT 1
+        FROM information_schema.columns
+        WHERE table_schema = DATABASE()
+          AND table_name = ?
+          AND column_name = ?
+        LIMIT 1
+      `,
+      [tableName, columnName],
+    );
+    if (rows.length === 0) {
+      await pool.execute(`ALTER TABLE ${tableName} ADD COLUMN ${definition}`);
+    }
+  }
+
+  await ensureColumn('users', 'current_member_id', 'current_member_id VARCHAR(64) NULL');
   await pool.execute(`
     CREATE TABLE IF NOT EXISTS members (
       id VARCHAR(64) PRIMARY KEY,
@@ -425,11 +440,15 @@ async function ensureMySqlSchema(pool) {
       CONSTRAINT fk_box_bindings_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
   `);
-  await pool.execute(
-    'ALTER TABLE device_bindings ADD COLUMN IF NOT EXISTS member_id VARCHAR(64) NULL AFTER user_id',
+  await ensureColumn(
+    'device_bindings',
+    'member_id',
+    'member_id VARCHAR(64) NULL AFTER user_id',
   );
-  await pool.execute(
-    'ALTER TABLE generated_plans ADD COLUMN IF NOT EXISTS plan_payload JSON NULL AFTER slot_amounts',
+  await ensureColumn(
+    'generated_plans',
+    'plan_payload',
+    'plan_payload JSON NULL AFTER slot_amounts',
   );
 }
 

@@ -147,11 +147,6 @@ CREATE TABLE IF NOT EXISTS member_cloud_state (
   KEY idx_member_cloud_state_updated (user_id, updated_at)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-ALTER TABLE users
-  ADD COLUMN IF NOT EXISTS current_member_id VARCHAR(64) NULL AFTER updated_at;
-
-ALTER TABLE device_bindings
-  ADD COLUMN IF NOT EXISTS member_id VARCHAR(64) NULL AFTER user_id;
-
-ALTER TABLE generated_plans
-  ADD COLUMN IF NOT EXISTS plan_payload JSON NULL AFTER slot_amounts;
+-- Column backfill for older schemas is handled by backend-example/server_complete.js
+-- to remain compatible with MySQL versions that do not support
+-- ALTER TABLE ... ADD COLUMN IF NOT EXISTS.
