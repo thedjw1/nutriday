@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutriday | 家庭 AI 健康管理</title>
+  <meta
+    name="description"
+    content="Nutriday 是一套面向家庭场景的 Android AI 健康管理应用，覆盖成员档案、报告识别、补剂绑定、每日状态、设备同步和 AI 医生解释。"
+  >
+  <meta
+    name="keywords"
+    content="Nutriday, AI 健康, 家庭健康管理, Android 健康应用, 报告识别, 补剂计划"
+  >
+  <meta name="author" content="Nutriday">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0891B2">
+  <meta property="og:title" content="Nutriday | 家庭 AI 健康管理">
+  <meta
+    property="og:description"
+    content="把家庭健康管理做成一套可执行、可解释、可持续更新的系统。"
+  >
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://nutriday.site">
+  <meta
+    property="og:image"
+    content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630' viewBox='0 0 1200 630'%3E%3Crect fill='%230891B2' width='1200' height='630'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='72' font-family='sans-serif' font-weight='700'%3ENutriday%3C/text%3E%3C/svg%3E"
+  >
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="http://nutriday.site">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%230891B2'/%3E%3Cpath d='M16 37c5-11 13-16 24-16 4 0 8 .7 12 2.1' fill='none' stroke='white' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M18 43c6-5 11-7 17-7 6 0 11 2 17 7' fill='none' stroke='white' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='24' cy='29' r='3' fill='white'/%3E%3Ccircle cx='41' cy='26' r='3' fill='white'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <header class="site-header" id="siteHeader" role="banner">
+    <div class="container nav">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">N</span>
+        <span class="brand-copy">
+          <strong>Nutriday</strong>
+          <span>家庭 AI 健康管理</span>
+        </span>
+      </a>
+
+      <button
+        class="mobile-menu-toggle"
+        aria-label="切换菜单"
+        aria-expanded="false"
+        aria-controls="mainNav"
+      >
+        <span class="hamburger"></span>
+      </button>
+
+      <nav class="nav-links" id="mainNav" aria-label="页面导航">
+        <a href="#overview">核心能力</a>
+        <a href="products.html">产品介绍</a>
+        <a href="#workflow">工作流程</a>
+        <a href="#download">下载</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-secondary" href="products.html">查看产品结构</a>
+        <a
+          class="btn btn-primary"
+          href="/downloads/app-release.apk"
+          data-download-target
+          download="Nutriday-AI-Health.apk"
+        >下载 APK</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="reveal">
+            <p class="eyebrow">Android App / Family Health / AI Explain</p>
+            <h1>
+              把家庭健康管理
+              <span>做成一套可以长期运行的系统</span>
+            </h1>
+            <p class="hero-text">
+              Nutriday 面向真实家庭场景：为不同成员维护独立档案，识别体检与营养报告，
+              绑定补剂盒位和设备数据，并把这些变化统一汇总到今日计划与 AI 医生解释中。
+            </p>
+            <div class="hero-actions">
+              <a
+                class="btn btn-primary"
+                href="/downloads/app-release.apk"
+                data-download-target
+                download="Nutriday-AI-Health.apk"
+              >立即下载 Android APK</a>
+              <a class="btn btn-secondary" href="#workflow">查看工作流程</a>
+            </div>
+            <ul class="hero-meta" aria-label="核心特点">
+              <li><span class="dot" aria-hidden="true"></span>多成员独立数据</li>
+              <li><span class="dot" aria-hidden="true"></span>报告识别后人工确认</li>
+              <li><span class="dot" aria-hidden="true"></span>计划随数据变化自动重算</li>
+              <li><span class="dot" aria-hidden="true"></span>AI 解释可区分 provider / fallback</li>
+            </ul>
+            <p class="hero-note">
+              当前站点以 <strong>HTTP 临时联调</strong> 为主，地址是
+              <strong>http://nutriday.site</strong>。HTTPS 与备案后续再统一切换。
+            </p>
+          </div>
+
+          <div class="reveal">
+            <div class="device-shell" aria-label="运行状态与应用预览">
+              <div class="device-frame">
+                <div class="device-top">
+                  <div class="device-title">Runtime Snapshot</div>
+                  <div class="device-chip" id="runtimeModeText">检测中</div>
+                </div>
+
+                <div class="device-panel">
+                  <div class="device-section">
+                    <div class="device-persona">
+                      <div class="persona-avatar" aria-hidden="true">AI</div>
+                      <div class="persona-copy">
+                        <strong>当前部署状态</strong>
+                        <span>官网直接读取当前 API、版本策略和下载地址</span>
+                      </div>
+                    </div>
+                    <div class="metric-grid">
+                      <div class="metric-card">
+                        <strong id="apiStatusText">检测中</strong>
+                        <span id="apiStatusDetail">等待 /healthz</span>
+                      </div>
+                      <div class="metric-card">
+                        <strong id="versionText">检测中</strong>
+                        <span id="versionDetail">等待 /api/version/latest</span>
+                      </div>
+                      <div class="metric-card">
+                        <strong id="storageText">检测中</strong>
+                        <span>当前持久化模式</span>
+                      </div>
+                      <div class="metric-card">
+                        <strong id="downloadModeText">HTTP</strong>
+                        <span id="downloadHrefText">下载地址待同步</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="device-section">
+                    <h3>今晚已经跑通的链路</h3>
+                    <div class="list-card">
+                      <div class="list-row">
+                        <div>
+                          <strong>App -> Nginx -> Node API -> MySQL</strong>
+                          <span>官网、接口、下载页和后端运行策略已经对齐</span>
+                        </div>
+                        <span class="status-pill status-ok">已验证</span>
+                      </div>
+                      <div class="list-row">
+                        <div>
+                          <strong>AI 医生解释</strong>
+                          <span>接口支持输出 source 和 usedFallback，便于判断真实来源</span>
+                        </div>
+                        <span class="status-pill status-mid">可观察</span>
+                      </div>
+                      <div class="list-row">
+                        <div>
+                          <strong>Android 临时 HTTP 联调</strong>
+                          <span>Manifest 已放开明文流量，等待后续 HTTPS 收口</span>
+                        </div>
+                        <span class="status-pill status-ok">当前可用</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bottom-tabs" aria-label="主要能力">
+                  <div class="tab-chip active"><span class="tab-dot" aria-hidden="true"></span><span>首页</span></div>
+                  <div class="tab-chip"><span class="tab-dot" aria-hidden="true"></span><span>成员</span></div>
+                  <div class="tab-chip"><span class="tab-dot" aria-hidden="true"></span><span>计划</span></div>
+                  <div class="tab-chip"><span class="tab-dot" aria-hidden="true"></span><span>设置</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="trust-strip reveal" aria-label="重点信息">
+          <article class="trust-card">
+            <strong>6</strong>
+            <span>核心产品模块</span>
+            <p>成员、报告、补剂、状态、设备和 AI 解释组成一条完整健康链路。</p>
+          </article>
+          <article class="trust-card">
+            <strong>1</strong>
+            <span>统一计划入口</span>
+            <p>只要有效数据发生变化，系统就会重新计算计划，而不是继续沿用旧结论。</p>
+          </article>
+          <article class="trust-card">
+            <strong>Android</strong>
+            <span>当前正式平台</span>
+            <p>优先把 Android 主链路打磨稳定，再扩展其他端。</p>
+          </article>
+          <article class="trust-card">
+            <strong>HTTP</strong>
+            <span>今晚联调基线</span>
+            <p>官网、下载地址和 API 当前全部按 HTTP 临时方案运行。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="overview">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">核心能力</span>
+          <h2>不是功能堆叠，而是把真正要执行的动作排成一条主线。</h2>
+          <p>
+            整套产品按“数据进入系统、被确认、驱动计划、给出解释”的路径组织，
+            每个模块都服务于同一个目标：让家庭健康管理有连续性。
+          </p>
+        </div>
+        <div class="feature-grid" id="featureGrid"></div>
+      </div>
+    </section>
+
+    <section id="workflow">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">工作流程</span>
+          <h2>从上传报告到执行今天计划，中间每一步都能说清楚。</h2>
+          <p>
+            不把 OCR 文本直接当结果，不把 AI 当黑箱。先确认结构化数据，
+            再让计划与解释围绕真实成员状态运行。
+          </p>
+        </div>
+        <div class="workflow-shell reveal" id="workflowShell"></div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">界面方向</span>
+          <h2>官网和 App 都坚持高对比、低噪音、可读性优先。</h2>
+          <p>
+            这版官网延续应用的专业工具感：更清晰的层级、更稳的排版，
+            以及更克制的动画和更明确的操作主次。
+          </p>
+        </div>
+        <div class="experience-grid">
+          <div class="preview-shell reveal" id="previewShell"></div>
+          <div class="stack-grid" id="principleGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="assurance">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">边界说明</span>
+          <h2>把能做什么、不能做什么，提前写明白。</h2>
+          <p>
+            这套产品是健康管理与营养辅助工具，不替代医生诊断。
+            边界越清晰，产品越可信。
+          </p>
+        </div>
+        <div class="assurance-grid" id="assuranceGrid"></div>
+      </div>
+    </section>
+
+    <section id="download">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">下载</span>
+          <h2>官网目录已经收成一套可以直接继续发版的静态站点结构。</h2>
+          <p>
+            只要替换 APK 文件，下载入口就能继续复用；版本页会优先读取后端返回的当前策略。
+          </p>
+        </div>
+        <div class="download-card reveal" id="downloadCard"></div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">FAQ</span>
+          <h2>把今天已经确认的事实写清楚，避免明天再重复排查。</h2>
+          <p>
+            这里只写已经验证通过的链路和当前明确的限制，不写空泛承诺。
+          </p>
+        </div>
+        <div class="faq-grid">
+          <div class="faq-card reveal" id="faqList"></div>
+          <aside class="contact-box reveal">
+            <h3>当前部署信息</h3>
+            <p>下面这些链路今晚已经跑通，可以直接作为明天继续联调的基线。</p>
+            <div class="contact-items">
+              <div class="contact-item">
+                <span>官网</span>
+                <a href="http://nutriday.site">http://nutriday.site</a>
+              </div>
+              <div class="contact-item">
+                <span>HTTP API</span>
+                <strong>http://nutriday.site/api</strong>
+              </div>
+              <div class="contact-item">
+                <span>APK 下载</span>
+                <a href="/downloads/app-release.apk" data-download-target>http://nutriday.site/downloads/app-release.apk</a>
+              </div>
+              <div class="contact-item">
+                <span>运维主文档</span>
+                <strong>服务器交流方法总结.md</strong>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-shell">
+        <p><strong>Nutriday</strong> | 家庭 AI 健康管理官网</p>
+        <p>&copy; <span id="currentYear"></span> Nutriday. Current deployment baseline: Android + HTTP + MySQL.</p>
+        <p class="footer-links">
+          <a href="products.html">产品介绍</a>
+          <a href="downloads.html">下载页面</a>
+          <a href="#faq">FAQ</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-download" aria-label="移动端快捷下载">
+    <div>
+      <strong>下载 Nutriday</strong>
+      <span id="mobileDownloadMeta">Android APK | HTTP 联调版本</span>
+    </div>
+    <a
+      href="/downloads/app-release.apk"
+      data-download-target
+      download="Nutriday-AI-Health.apk"
+    >下载</a>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
